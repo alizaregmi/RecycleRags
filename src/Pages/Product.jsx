@@ -1,17 +1,30 @@
-import React, { useContext } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
-import {ShopContext} from '../Context/ShopContext';
 import Breadcrum from '../Components/Breadcrums/Breadcrums';
+import axios from 'axios';
 import ProductDisplay from '../Components/ProductDisplay/ProductDisplay';
+import RelatedProducts from '../Components/RelatedProducts/RelatedProducts';
 
 const Product = () => {
-    const {all_product}= useContext(ShopContext);
-    const {productId}= useParams();
-    const product = all_product.find((e)=> e.id === Number (productId))
+  const { productId } = useParams();
+  const [product, setProduct] = useState([])
+
+  useEffect(() => {
+    axios.get(`http://localhost:2000/products/${productId}`)
+      .then(res => {
+        setProduct(res.data.data[0])
+
+      })
+      .catch(err => console.log(err))
+  }, [])
+
+
+
   return (
     <div>
-      <Breadcrum product={product}/>
-      <ProductDisplay product={product}/>
+      <Breadcrum product={product} />
+      <ProductDisplay product={product} />
+      <RelatedProducts></RelatedProducts>
     </div>
   )
 }

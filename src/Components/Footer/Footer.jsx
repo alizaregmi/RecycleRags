@@ -4,12 +4,16 @@ import logo from '../Assets/Logo.png'
 import instagram_icon from '../Assets/instagram_icon.png'
 import pintester_icon from '../Assets/pintester_icon.png'
 import whatsapp_icon from '../Assets/whatsapp_icon.png'
+import { Link } from 'react-router-dom'
 
 const Footer = () => {
+   const handleLogoClick = () => {
+    window.scrollTo(0, 0);
+  };
   return (
     <div className='footer'>
       <div className="footer-logo">
-        <img src={logo} alt="" />
+        <Link to='/'><img  onClick={handleLogoClick}  src={logo} alt="" /></Link>
         <p>RecycleRags</p>
       </div>
       <ul className="footer-links">

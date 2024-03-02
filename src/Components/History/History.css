@@ -1,0 +1,26 @@
+.sold-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+  height: 90vh;
+}
+.sold-items label {
+  font-weight: 500;
+  font-size: 28px;
+}
+.your-sold-item {
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.your-sold-item button {
+  height: 40px;
+  width: 250px;
+  background-color: rgb(36, 86, 211);
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  font-size: 18px;
+}

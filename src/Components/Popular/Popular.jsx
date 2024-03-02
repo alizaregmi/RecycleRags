@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './Popular.css'
-import data_product from '../Assets/data'
+import axios from 'axios';
 import Item from '../Item/Item'
 
 const Popular = () => {
+  const [popularItem, setPopularItem] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:2000/products/')
+      .then(res => {
+        setPopularItem(res.data.data)
+      })
+      .catch(err => console.log(err))
+  }, [])
+
+
   return (
     <div className='popular'>
-      <h1>POPULAR</h1>
+      <h1>ALL PRODUCTS</h1>
       <hr />
       <div className="popular-item">
-        {data_product.map((item,i)=>{
-          return <Item key={i} id={item.id} name={item.name} image={item.image} bought_price={item.bought_price} new_price={item.selling_price}/>
+        {popularItem.map((popularItem, i) => {
+          return <Item key={i} id={popularItem._id} name={popularItem.productName} image={popularItem.productImage} bought_price={popularItem.productBoughtPrice} new_price={popularItem.productSellingPrice} />
         })}
       </div>
     </div>

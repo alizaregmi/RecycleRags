@@ -1,21 +1,39 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './NewCollection.css'
-import new_collection from '../Assets/new_collections'
+import axios from 'axios';
 import Item from '../Item/Item'
-import axios from 'axios'
 
 const NewCollection = () => {
-  axios.get('https://dummyjson.com/products/1').then(res => {
-       console.log(res.data)
-});
+  const [newItem, setNewItem] = useState([])
+
+  useEffect(() => {
+    axios.get('http://localhost:2000/products/')
+      .then(res => {
+        setNewItem(res.data.data)
+      })
+      .catch(err => console.log(err))
+  }, [])
+
+
+
   return (
     <div className='new-collections'>
       <h1>NEWLY ADDED</h1>
       <hr />
       <div className="collections">
-        {new_collection.map((item,i)=>{
-            return <Item key={i} id={item.id} name={item.name} image={item.image} bought_price={item.bought_price} new_price={item.selling_price}/>
-        })}
+        {newItem
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+          .slice(0, 4)
+          .map((newItem, i) => (
+            <Item
+              key={i}
+              id={newItem._id}
+              name={newItem.productName}
+              image={newItem.productImage}
+              bought_price={newItem.productBoughtPrice}
+              new_price={newItem.productSellingPrice}
+            />
+          ))}
       </div>
     </div>
   )

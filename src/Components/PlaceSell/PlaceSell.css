@@ -1,0 +1,66 @@
+.container {
+  height: 70vh;
+  background: linear-gradient(180deg, #fde1ff, #e1ffea22 60%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container .heading {
+  margin-top: 5vh;
+  font-size: 40px;
+  font-weight: 500;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  color: #c43ccd;
+}
+
+.sell-form {
+  height: 60vh;
+  width: 70vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4vh;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.sell-form form {
+  display: flex;
+  gap: 50px;
+}
+.sell-form label {
+  font-size: 20px;
+  font-weight: 500;
+  display: table-cell;
+}
+.sell-form input {
+  height: 3vh;
+  width: 15vw;
+  margin-top: 1vh;
+  display: table-cell;
+}
+.left-part div {
+  margin-top: 1vh;
+}
+.right-part input {
+  height: 20vh;
+  height: 1vh;
+}
+.right-part button {
+  margin-top: 2vh;
+  height: 5vh;
+  width: 8vw;
+  font-size: 23px;
+  color: white;
+  background: #0d56bb;
+  margin-top: 30px;
+  margin-left: 12vw;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5vh;
+}
+.middle-part div {
+  margin-top: 1vh;
+}
+.right-part div {
+  margin-top: 1vh;
+}

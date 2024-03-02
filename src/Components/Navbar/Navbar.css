@@ -1,7 +1,7 @@
 .navbar{
     display: flex;
     justify-content: space-around;
-    padding: 16px;
+    padding: 5px;
     box-shadow: 0 1px 3px -2px black;
 }
 
@@ -9,15 +9,16 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    cursor: pointer;
 }
 
 .nav-menu{
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 50px;
+    gap: 70px;
     color: #626262;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 500;
 }
 
@@ -41,7 +42,7 @@
 .nav-login-cart{
     display: flex;
     align-items: center;
-    gap: 45px;
+    gap: 50px;
 }
 
 .nav-login-cart button{
@@ -55,6 +56,9 @@
     font-weight: 500;
     background: white;
     cursor: pointer;
+}
+.nav-login-cart button:hover{
+    background: #f3f3f3;
 }
 
 .nav-login-cart button:active{
