@@ -17,6 +17,9 @@ const Login = () => {
         localStorage.setItem("token", res.data.data)
         window.location.href = '/'
       })
+      .catch(err => {
+        toast.error("Invalid email or password");
+      })
 
   }
 

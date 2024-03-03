@@ -30,14 +30,14 @@ const PlaceSell = () => {
   const token = localStorage.getItem('token');
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
+    const imageFile = e.target.querySelector('input[name="productImage"]');
     const form = new FormData();
     form.append('productName', formData.productName);
-    form.append('productImage', formData.productImage);
     form.append('productDescription', formData.productDescription);
     form.append('productSize', formData.productSize);
     form.append('productBoughtPrice', formData.productBoughtPrice);
     form.append('productSellingPrice', formData.productSellingPrice);
+    form.append('productImage', imageFile.files[0]);
     form.append('productStatus', formData.productStatus);
 
     const response = await fetch('http://localhost:2000/products', {
@@ -63,9 +63,10 @@ const PlaceSell = () => {
 
     } else {
       // Handle other response statuses if needed
-      console.error('Error adding product:', response.statusText);
+      toast.error('Please enter all Fields');
     }
   };
+
 
 
 

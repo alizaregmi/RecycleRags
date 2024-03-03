@@ -37,14 +37,14 @@ const ProductDisplay = (props) => {
     <div className='productdisplay'>
       <div className="productdisplay-left">
         <div className="productdisplay-img-list">
-          <img src={product.productImage} alt="" />
-          <img src={product.productImage} alt="" />
-          <img src={product.productImage} alt="" />
-          <img src={product.productImage} alt="" />
+          <img src={'http://localhost:2000/uploads/' + product.productImage} alt="" />
+          <img src={'http://localhost:2000/uploads/' + product.productImage} alt="" />
+          <img src={'http://localhost:2000/uploads/' + product.productImage} alt="" />
+          <img src={'http://localhost:2000/uploads/' + product.productImage} alt="" />
 
         </div>
         <div className="productdisplay-img">
-          <img className='productdisplay-main-img' src={product.productImage} alt="" />
+          <img className='productdisplay-main-img' src={'http://localhost:2000/uploads/' + product.productImage} alt="" />
         </div>
       </div>
       <div className="productdisplay-right">
